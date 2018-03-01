@@ -1,0 +1,31 @@
+1) db.createCollection('orders')
+
+
+2) orders.insert ( {date: new ISODate('2017-02-03')})
+orders.insert ( {date: new ISODate('2017-04-04') } )
+orders.insert ( {date: new ISODate('2017-01-02') } )
+
+
+3) orders.find().pretty()
+{
+	"_id" : ObjectId("5a971f2c55e8777abca128f5"),
+	"date" : ISODate("2017-02-03T00:00:00Z")
+}
+{
+	"_id" : ObjectId("5a971fb755e8777abca128f6"),
+	"date" : ISODate("2017-04-04T00:00:00Z")
+}
+{
+	"_id" : ObjectId("5a971fd655e8777abca128f7"),
+	"date" : ISODate("2017-01-02T00:00:00Z")
+
+
+
+4)orders.find( {date: {$gt: new Date ('2017-01-31') } } )
+
+
+5)orders.update({date: new ISODate ('2017-03-02')}, {$set: {money: 63.00}})
+
+6)orders.update ({date: new ISODate ('2017-02-03')}, {$push: {lineItems: [{unitPrice:100.00 , quantity:1, productName: 'frog'}]}})
+
+7)
